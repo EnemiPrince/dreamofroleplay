@@ -1,0 +1,22 @@
+{
+  "name": "roleplay",
+  "version": "1.0.0",
+  "description": "Enemi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [
+    "fivem",
+    "bot"
+  ],
+  "author": "Enemi",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}
