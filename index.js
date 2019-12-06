@@ -8,7 +8,7 @@ bot.on("ready", async () => {
 
     console.log(`**${bot.user.username}** je nyní online!`);
 
-    bot.user.setActivity("Scriptujeme Bota!", {type: "PLAYING"});
+    bot.user.setActivity("Ukazuje to Jedlica.", {type: "PLAYING"});
 
 });
 
@@ -28,4 +28,4 @@ bot.on("message", async message => {
 });
 
 
-bot.login(process.env.token);
+bot.login(process.env.token); 
