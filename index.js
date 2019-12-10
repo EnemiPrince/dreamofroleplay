@@ -8,7 +8,7 @@ bot.on("ready", async () => {
 
     console.log(`**${bot.user.username}** je nyní online!`);
 
-    bot.user.setActivity("Ukazuje to Jedlica.", {type: "PLAYING"});
+    bot.user.setActivity("Ukazuje to klukům.", {type: "PLAYING"});
 
 });
 
