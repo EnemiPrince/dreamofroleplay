@@ -25,7 +25,7 @@ bot.on("message", async message => {
 
     var messageArray = message.content.split(" ");
 
-    var command = messageArra[0];
+    var command = messageArray[0];
 
     var arguments = messageArray.slice(1);
 
