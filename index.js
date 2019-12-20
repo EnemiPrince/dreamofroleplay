@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const botConfig = require("./botconfig.json");
+const botConfig = require("../botconfig.json");
 
 const fs = require("fs");
 
@@ -18,12 +18,13 @@ fs.readdir("./commands/", (err, files) => {
         return;
     }
 
-    jsFile.forEach((f, i) => {
+    jsFile.forEach((f,i) => {
 
         var fileGet = require(`./commands/${f}`);
         console.log(`Command: ${f} byl nalezen`);
 
         bot.commands.set(fileGet.help.name, fileGet);
+
     })
 
 });
