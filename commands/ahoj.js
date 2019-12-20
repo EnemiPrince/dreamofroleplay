@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    return message.channel.send("AHoj");
+    return message.channel.send("Ahoj");
 
 }
 
