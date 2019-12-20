@@ -23,7 +23,7 @@ fs.readdir("./commands/", (err, files) => {
         var fileGet = require(`./commands/${f}`);
         console.log(`Command: ${f} byl nalezen`);
 
-        bot.commands.set(fileGet.help.name, fileGet);
+        bot.commands.set(f, fileGet);
     })
 
 });
