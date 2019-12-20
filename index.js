@@ -1,9 +1,31 @@
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
+const fs = require("fs");
+
 const bot = new discord.Client();
 
 
+fs.readdir("./commands/", (err, files) => {
+
+    if (err) console.log(err);
+
+    var jsFile = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsFile.length <= 0) {
+        console.log("Commandy nenalezeny!");
+        return;
+    }
+
+    jsFile.forEach((f, i) => {
+
+        var fileGet = require(`./commands/${f}`);
+        console.log(`Command: ${f} byl nalezen`);
+    })
+
+});
+////////////////////////////////////////////////////////////////////////////////
+            // Ukazování zda je bot online + co právě dělá :D //
 bot.on("ready", async () => {
 
     console.log(`**${bot.user.username}** je nyní online!`);
@@ -11,7 +33,7 @@ bot.on("ready", async () => {
     bot.user.setActivity("Vytváříme Ticket Systém!", {type: "PLAYING"});
 
 });
-
+////////////////////////////////////////////////////////////////////////////////
 bot.on("message", async message => {
     if(message.author.bot) return;
 
