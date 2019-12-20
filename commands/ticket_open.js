@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     var bool = false;
 
-    message.guild.channel.array.forEach(element => {
+    message.guild.channels.forEach((channel) => {
         
         if (channel.name == userName.toLoweCase() + "-" + userDiscriminator) {
 
