@@ -50,7 +50,7 @@ bot.on("message", async message => {
 
     var commands = bot.commands.get(command.slice(prefix.length));
 
-    if(commands) command.run(bot, message, args);
+    if(commands) commands.run(bot, message, arguments);
 
 });
 
