@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.guild.channels.forEach((channel) => {
         
-        if (channel.name == userName.toLoweCase() + "-" + userDiscriminator) {
+        if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
 
             message.channel.send("Úspěšně jste si vytvořili Ticket!");
 
@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send(embedCreateTicket);
 
-    message.guild.createChannel(message.author.username + "-" + message.author.discriminator, "text").then((createdChan) => {
+    message.guild.createChannel(userName + "-" + userDiscriminator, "text").then((createdChan) => {
 
         createdChan.setParent(categoryId).then((settedParent) => {
 
