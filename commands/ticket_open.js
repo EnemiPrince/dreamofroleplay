@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send(embedCreateTicket);
 
-    message.guild.createChannel(userName + "-" + userDiscriminator, "text").then((createdChan) => {
+    message.guild.createChannel(message.author.username + "-" + message.author.discriminator, "text").then((createdChan) => {
 
         createdChan.setParent(categoryId).then((settedParent) => {
 
