@@ -2,27 +2,31 @@ const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
 const fs = require("fs");
-const bot = new discord.Client({disableEveryone: true});
-bot.commands = new discord.Collection();
+
+const bot = new discord.Client();
+bot.command = new discord.Collection();
 
 
-fs.readdir("./commands/", (err, files) =>{
+fs.readdir("./commands/", (err, files) => {
 
     if (err) console.log(err);
 
-    let jsfile = files.filter(f => f.split(".").pop() === "js")
-    if(jsfile.length <= 0){
-        console.log("Nenalezeno!")
+    var jsFile = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsFile.length <= 0) {
+        console.log("Commandy nenalezeny!");
         return;
     }
 
-    jsfile.forEach((f, i) =>{
-        let props = require(`./commands/${f}`);
-        console.log(`${f} načten!`);
-        bot.commands.set(props.help.name, props);
-    });
+    jsFile.forEach((f, i) => {
 
-})
+        var fileGet = require(`./commands/${f}`);
+        console.log(`Command: ${f} byl nalezen`);
+
+        bot.commands.set(fileGet.help.name, fileGet);
+    })
+
+});
 ////////////////////////////////////////////////////////////////////////////////
             // Ukazování zda je bot online + co právě dělá :D //
 bot.on("ready", async () => {
@@ -46,10 +50,9 @@ bot.on("message", async message => {
 
     var arguments = messageArray.slice(1);
 
-    
+    var commands = bot.commands.get(command.slice(prefix.length));
 
-    var commandfile = bot.commands.get(command.slice(prefix.length));
-    if(commandfile) commandfile.run(bot,message,arguments);
+    if(commands) commands.run(bot, message, arguments);
 
 });
 

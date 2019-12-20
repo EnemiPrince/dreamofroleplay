@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    console.log("Propojíme se?");
+    return message.channel.send("AHoj");
 
 }
 
