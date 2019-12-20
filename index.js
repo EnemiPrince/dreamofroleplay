@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
 const fs = require("fs");
-const bot = new Discord.Client({disableEveryone: true});
+const bot = new discord.Client({disableEveryone: true});
 bot.commands = new discord.Collection();
 
 
