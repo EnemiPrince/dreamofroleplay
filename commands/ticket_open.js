@@ -29,6 +29,30 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send(embedCreateTicket);
 
+    message.guild.createChannel(userName + "-" + userDiscriminator, "text").then((createdChan) => {
+
+        createdChan.setParent(categoryId).then((settedParent) => {
+
+            settedParent.overwritePermissions(message.guild.roles.find("name", "@everyone"), { "READ_MESSAGES": false });
+
+            settedParent.overwritePermissions(message.author, {
+
+                "READ_MESSAGES": true, "SEND_MESSAGES": true,
+                "ATTACH_FILES": true, "CONNECT": true,
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
+
+            });
+
+            var embedParent = new discord.RichEmbed()
+                .setTitle("Ahoj" + message.author.username.toString())
+                .setFooter("Napište Váš problém. Pokusíme se ho co nejdříve vyřešit!");
+    
+            settedParent.send(embedCreateTicket);
+
+        })
+
+    })
+
 }
 
 module.exports.help = {
