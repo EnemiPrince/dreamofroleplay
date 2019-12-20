@@ -4,7 +4,7 @@ const botConfig = require("./botconfig.json");
 const fs = require("fs");
 
 const bot = new discord.Client();
-bot.command = new discord.Collection();
+bot.commands = new discord.Collection();
 
 
 fs.readdir("./commands/", (err, files) => {
