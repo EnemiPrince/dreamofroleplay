@@ -7,26 +7,7 @@ const bot = new discord.Client();
 bot.command = new discord.Collection();
 
 
-fs.readdir("./commands/", (err, files) => {
 
-    if (err) console.log(err);
-
-    var jsFile = files.filter(f => f.split(".").pop() === "js");
-
-    if (jsFile.length <= 0) {
-        console.log("Commandy nenalezeny!");
-        return;
-    }
-
-    jsFile.forEach((f, i) => {
-
-        var fileGet = require(`./commands/${f}`);
-        console.log(`Command: ${f} byl nalezen`);
-
-        bot.commands.set(fileGet.help.name, fileGet);
-    })
-
-});
 ////////////////////////////////////////////////////////////////////////////////
             // Ukazování zda je bot online + co právě dělá :D //
 bot.on("ready", async () => {
@@ -49,10 +30,7 @@ bot.on("message", async message => {
     var command = messageArra[0];
 
     var arguments = messageArray.slice(1);
-
-    var commands = bot.commands.get(command.slice(prefix.length));
-
-    if(commands) commands.run(bot, message, arguments);
+    
 
 });
 
