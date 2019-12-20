@@ -4,7 +4,7 @@ const botConfig = require("./botconfig.json");
 const fs = require("fs");
 
 const bot = new discord.Client();
-bot.commands = new discord.Collection();
+bot.command = new discord.Collection();
 
 
 fs.readdir("./commands/", (err, files) => {
@@ -18,12 +18,15 @@ fs.readdir("./commands/", (err, files) => {
         return;
     }
 
-    jsFiles.forEach((f, i) =>{
-        let fileGet = require(`./commands/${f}`);
-        console.log(`${f} loaded!`);
+    jsFile.forEach((f, i) => {
+
+        var fileGet = require(`./commands/${f}`);
+        console.log(`Command: ${f} byl nalezen`);
+
         bot.commands.set(fileGet.help.name, fileGet);
-      });
-    });
+    })
+
+});
 ////////////////////////////////////////////////////////////////////////////////
             // Ukazování zda je bot online + co právě dělá :D //
 bot.on("ready", async () => {
