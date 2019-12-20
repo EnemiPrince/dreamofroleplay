@@ -4,6 +4,7 @@ const botConfig = require("./botconfig.json");
 const fs = require("fs");
 
 const bot = new discord.Client();
+bot.command = new discord.Collection();
 
 
 fs.readdir("./commands/", (err, files) => {
@@ -46,6 +47,10 @@ bot.on("message", async message => {
     var command = messageArra[0];
 
     var arguments = messageArray.slice(1);
+
+    var commands = bot.commands.get(command.slice(prefix.length));
+
+    if(commands) command.run(bot, message, args);
 
 });
 
