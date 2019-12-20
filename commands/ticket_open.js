@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.guild.channels.forEach((channel) => {
         
-        if (channel.name == username.toLoweCase() + "-" + userDiscriminator) {
+        if (channel.name == userName.toLoweCase() + "-" + userDiscriminator) {
 
             message.channel.send("Úspěšně jste si vytvořili Ticket!");
 
