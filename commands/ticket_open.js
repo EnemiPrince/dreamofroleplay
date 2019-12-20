@@ -40,14 +40,14 @@ module.exports.run = async (bot, message, args) => {
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
                 "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
-
+ 
             });
 
             var embedParent = new discord.RichEmbed()
                 .setTitle("Ahoj" + message.author.username.toString())
                 .setFooter("Napište Váš problém. Pokusíme se ho co nejdříve vyřešit!");
     
-            settedParent.send(embedCreateTicket);
+            settedParent.send(embedParent);
 
         })
 
