@@ -28,6 +28,12 @@ bot.on("message", async message => {
     var command = messageArra[0];
 
     var arguments = messageArray.slice(1);
+
+    if( command === `${prefix}ahoj`){
+
+        return message.channel.send("Mrdat");
+
+    }
     
 
 });
