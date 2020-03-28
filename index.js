@@ -6,29 +6,6 @@ const fs = require("fs");
 const bot = new discord.Client();
 bot.commands = new discord.Collection();
 
-
-fs.readdir("./commands/", (err, files) => {
-
-    if (err) console.log(err);
-
-    var jsFiles = files.filter(f => f.split(".").pop() === "js");
-
-    if (jsFiles.length <= 0) {
-        console.log("Commandy nenalezeny!");
-        return;
-    }
-
-    jsFiles.forEach((f, i ) => {
-
-        var fileGet = require(`./commands/${f}`);
-        console.log(`Command: ${f} nalezen!`);
-
-        bot.commands.set(fileGet.help.name, fileGet);
-
-    })
-
-})
-
 ////////////////////////////////////////////////////////////////////////////////
             // Ukazování zda je bot online + co právě dělá :D //
 bot.on("ready", async () => {
