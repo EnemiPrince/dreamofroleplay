@@ -21,7 +21,7 @@ fs.readdir("./commands/", (err, files) => {
     jsFiles.forEach((f, i ) => {
 
         var fileGet = require(`./commands/${f}`);
-        console.log(`Command: ${f} nalezen`);
+        console.log(`Command: ${f} nalezen!`);
 
         bot.commands.set(fileGet.help.name, fileGet);
 
