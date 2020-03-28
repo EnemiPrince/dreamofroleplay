@@ -35,7 +35,7 @@ bot.on("ready", async () => {
 
     console.log(`**${bot.user.username}** je nyní online!`);
 
-    bot.user.setActivity("Vytváříme Ticket Systém!", {type: "PLAYING"});
+    bot.user.setActivity("Pouštím hráče do serveru!", {type: "PLAYING"});
 
 });
 ////////////////////////////////////////////////////////////////////////////////
